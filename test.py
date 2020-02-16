@@ -67,6 +67,24 @@ class TestGerenciaTrasacoes(unittest.TestCase):
         for transacao in gerencia_transacoes.transacoes:
             self.assertIsInstance(transacao, Transacao)
 
+    def test_posso_validar_registros_do_csv(self):
+        transacoes = OrderedDict()
+        transacoes['id_invalido'] = 'string invalida'
+        contas = OrderedDict()
+        contas['id_invalido'] = 'string'
+        gerencia_transacoes = GerenciaTransacoes()
+        
+        #TODO validate raises
+        with self.assertRaises(ValueError):
+            gerencia_transacoes.carregar_transacoes(transacoes)
+        
+        with self.assertRaises(ValueError):
+            gerencia_transacoes.carregar_contas(contas)
+        
+        for transacao in gerencia_transacoes.transacoes:
+            self.assertIsInstance(transacao, Transacao)
+
+
     def test_posso_executar_as_transacoes(self):
         transacao = Transacao(1, 10)
         conta = Conta(1, 10)
