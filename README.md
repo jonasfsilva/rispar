@@ -16,3 +16,15 @@ Para executar com docker
 ```sh
 $ docker-compose run risparteste python rispartest.py contas.csv transacoes.csv
 ```
+
+### Como Executar os Testes
+```sh
+$ python3 -m unittest
+```
+
+ou 
+
+```sh
+$ docker-compose run risparteste python -m unittest
+```
+
