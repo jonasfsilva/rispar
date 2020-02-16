@@ -1,6 +1,6 @@
 version: "2.1"
 
 services:
-  rispartest:
-    container_name: challenge_onyo
+  risparteste:
+    container_name: risparteste
     build: .
